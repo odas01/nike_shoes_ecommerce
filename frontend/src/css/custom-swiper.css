@@ -1,0 +1,22 @@
+.mySwiper {
+    height: 50%;
+}
+
+.mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+    border: 1px solid #bdcdd6;
+    border-radius: 4px;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 1px solid #20262e;
+}
+
+/* .swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 28px !important;
+    color: #6096b4 !important;
+} */
