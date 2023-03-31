@@ -77,9 +77,11 @@ function Filter({ setFilter }) {
                         ghost
                         expandIcon={({ isActive }) => (!isActive ? <AiOutlinePlus /> : <AiOutlineMinus />)}
                         expandIconPosition="end"
+                        defaultActiveKey={['1']}
                     >
                         <Collapse.Panel
                             header={<span className="text-[15px] cursor-pointer block py-2">by Price</span>}
+                            key="1"
                         >
                             <Checkbox.Group
                                 className="flex-column"
@@ -103,9 +105,11 @@ function Filter({ setFilter }) {
                         ghost
                         expandIcon={({ isActive }) => (!isActive ? <AiOutlinePlus /> : <AiOutlineMinus />)}
                         expandIconPosition="end"
+                        defaultActiveKey={['1']}
                     >
                         <Collapse.Panel
                             header={<span className="text-[15px] cursor-pointer block py-2 mb-2">by Size</span>}
+                            key="1"
                         >
                             <Row gutter={[5, 5]}>
                                 {listSize.map((item, index) => (
