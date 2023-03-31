@@ -33,9 +33,10 @@
     },
     "scripts": {
         "start": "set PORT=3001 && react-scripts start",
-        "build": "postcss src/index.css -o public/build/tailwind.css",
+        "build": "react-scripts build ",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "build:css": "postcss src/index.css -o src/build/tailwind.css"
     },
     "eslintConfig": {
         "extends": [
