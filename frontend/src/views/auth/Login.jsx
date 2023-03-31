@@ -82,12 +82,12 @@ function Login() {
                 <Button type="submit">Log in</Button>
             </form>
             <hr className="my-10 hr" />
-            <Button type="submit" color="#000" bgColor="#fff">
+            {/* <Button type="submit" color="#000" bgColor="#fff">
                 Login With Facebook
             </Button>
             <Button className="mt-4" type="submit" title="Login With Google" color="#000" bgColor="#fff">
                 Login With Google
-            </Button>
+            </Button> */}
             <p className="mb-0 mt-4">
                 <Link to="/forgot-password" className=" text-green-700 hover:text-green-700 hover:underline">
                     Forgot your password?
