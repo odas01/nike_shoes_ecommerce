@@ -204,7 +204,7 @@ function Categorys() {
                     <table className="w-full">
                         <thead className="text-xs text-gray-500 font-extrabold border-b bg-gray-200 dark:bg-inherit border-gray-300 dark:border-[#24262d]">
                             <tr>
-                                <td className="px-4 py-4w-[50px]"></td>
+                                <td className="px-4 py-4 w-[50px]"></td>
                                 <td className="px-4 py-3">CATEGORY NAME</td>
                                 <td className="px-4 py-3">GENDERS</td>
                                 <td className="px-4 py-4text-center w-32">ACTIONS</td>

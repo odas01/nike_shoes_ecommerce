@@ -67,7 +67,7 @@ function Dashboard() {
 
                 {/* Button Logout */}
                 <div className="p-6 mt-auto">
-                    <Button handleClick={handleLogOut}>
+                    <Button handleClick={handleLogOut} className="w-full">
                         <CiLogout className="mr-2" size="20px" />
                         Log out
                     </Button>

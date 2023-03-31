@@ -8,7 +8,7 @@ function Button({
     children,
     ...props
 }) {
-    const classNameProp = `flex-center w-full h-[46px] bg-[${bgColor}] text-[${color}] rounded-lg
+    const classNameProp = `flex-center h-[46px] bg-[${bgColor}] text-[${color}] rounded-lg
      transition-colors duration-200 ease cursor-pointer hover:bg-[#057A55]
     disabled:bg-[#057A55] ${className}`;
     return (
