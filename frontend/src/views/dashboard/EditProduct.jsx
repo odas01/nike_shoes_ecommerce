@@ -85,7 +85,7 @@ function EditProduct() {
         <div className="min-h-full d-flex flex-column">
             {loading && <LoadingOverlay title="Waiting for create...." />}
             <h2 className="mb-6 mt-0 font-bold text-xl text-gray-800 dark:text-[#d5d6d7]">Edit product ({slug})</h2>
-            <div className="w-[60%] flex-1 mx-auto p-8 rounded  border border-solid border-gray-300 dark:border-none dark:shadow-form">
+            <div className="w-[60%] flex-1 mx-auto p-8 rounded  border border-solid border-gray-300 dark:border-none dark:shadow-[0px_7px_30px_-10px_#263958]">
                 <FormProduct
                     categories={categories}
                     formValue={formValue}

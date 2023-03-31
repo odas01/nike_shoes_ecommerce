@@ -31,7 +31,7 @@ function Header({ offset }) {
                             <BsBag size={20} className="transition-all ml-6 group-hover:scale-110" />
                             <span
                                 className="w-6 h-6 bg-white flex-center absolute -top-3 -right-4 
-                                shadow-badge rounded-full text-[10px] font-bold"
+                                shadow-[0px_22px_70px_4px_rgba(0,0,0,0.56)] rounded-full text-[10px] font-bold"
                             >
                                 {cartQuantity}
                             </span>

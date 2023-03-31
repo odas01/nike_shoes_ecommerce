@@ -34,7 +34,7 @@ function Auth({ authRoute }) {
         </div>
     ) : (
         <div className="flex-center px-6 py-7 relative min-h-[100vh] bg-light-behind dark:bg-[#121317] text-[#24262d] dark:text-[#e5e7eb]">
-            <div className="max-w-[896px] h-full rounded-lg overflow-hidden shadow-form dark:bg-[#1A1C23]">
+            <div className="max-w-[896px] h-full rounded-lg overflow-hidden shadow-[0px_7px_30px_-10px_#263958] dark:bg-[#1A1C23]">
                 <Row>
                     <Col xs={12}>
                         <img src={authRoute === 'login' ? login : register} alt="" />

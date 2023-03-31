@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
@@ -92,7 +91,7 @@ function Search() {
                 <MdOutlineCancel size={12} />
             </div>
             <div
-                className={`absolute top-[100px] right-0 z-50 shadow-search bg-white w-full max-h-[500px] overflow-y-auto p-2 rounded-md duration-200 ${
+                className={`absolute top-[50px] right-0 z-50 shadow-[0px_5px_15px_#00000059] bg-white w-full max-h-[500px] overflow-y-auto p-2 rounded-md duration-200 ${
                     showResult && (searchValue || searchResult.length >= 1)
                         ? 'visible opacity-100 top-12'
                         : 'invisible opacity-0 top-20'

@@ -14,7 +14,7 @@ function Footer() {
         });
     };
     return (
-        <div className="shadow-footer mt-auto">
+        <div className="shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] mt-auto">
             <div className="container pt-4 pb-2">
                 <div className="mt-4 mb-10">
                     <Row gutter={24}>
@@ -22,19 +22,19 @@ function Footer() {
                             <h2 className="font-medium text-lg">Follow our Socials</h2>
                             <div className="flex pt-4">
                                 <div
-                                    className="w-10 h-10 shadow-icon rounded-full flex-center transition-all 
+                                    className="w-10 h-10 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                 >
                                     <img className="w-4 h-4" src={images.social.facebook} alt="facebook" />
                                 </div>
                                 <div
-                                    className="w-10 h-10 shadow-icon rounded-full flex-center ml-4 transition-all 
+                                    className="w-10 h-10 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center ml-4 transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                 >
                                     <img className="w-4 h-4" src={images.social.instagram} alt="instagram" />
                                 </div>
                                 <div
-                                    className="w-10 h-10 shadow-icon rounded-full flex-center ml-4 transition-all 
+                                    className="w-10 h-10 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center ml-4 transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                 >
                                     <img className="w-4 h-4" src={images.social.google} alt="google" />

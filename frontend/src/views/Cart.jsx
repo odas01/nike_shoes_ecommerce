@@ -140,7 +140,7 @@ function Cart() {
                             </span>
                         </div>
                         <div className="flex justify-end">
-                            <div className="mt-8 w-60 h-14 rounded-xl flex-center text-[#5B8FB9]  border-[3px] border-current transition-all duration-200 hover:-translate-y-1 hover:shadow-raise">
+                            <div className="mt-8 w-60 h-14 rounded-xl flex-center text-[#5B8FB9]  border-[3px] border-current transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_8px_-6px_currentcolor]">
                                 <button
                                     className="text-base font-bold w-full h-full text-inherit"
                                     onClick={() => navigate('/checkout')}

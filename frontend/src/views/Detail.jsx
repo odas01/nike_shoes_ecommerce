@@ -285,19 +285,19 @@ function Detail() {
                                 <span className="text-base">Share: </span>
                                 <div className="flex-center">
                                     <div
-                                        className="w-8 h-8 shadow-icon rounded-full flex-center ml-4 transition-all 
+                                        className="w-8 h-8 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center ml-4 transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                     >
                                         <img className="w-4 h-4" src={images.social.facebook} alt="facebook" />
                                     </div>
                                     <div
-                                        className="w-8 h-8 shadow-icon rounded-full flex-center ml-4 transition-all 
+                                        className="w-8 h-8 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center ml-4 transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                     >
                                         <img className="w-4 h-4" src={images.social.instagram} alt="instagram" />
                                     </div>
                                     <div
-                                        className="w-8 h-8 shadow-icon rounded-full flex-center ml-4 transition-all 
+                                        className="w-8 h-8 shadow-[0px_7px_29px_0px_#006fff87] rounded-full flex-center ml-4 transition-all 
                                     duration-300 cursor-pointer hover:bg-[rgba(0,0,0,0.8)] hover:-translate-y-1"
                                     >
                                         <img className="w-4 h-4" src={images.social.google} alt="google" />

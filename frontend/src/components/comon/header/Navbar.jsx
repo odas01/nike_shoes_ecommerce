@@ -33,7 +33,7 @@ function Navbar({ offset }) {
                             to={`c/${gender.name}`}
                             className={`px-5 transition-all ${
                                 gender.name === genderParams
-                                    ? 'duration-500 text-white before:before_navbar_item relative'
+                                    ? 'duration-500 text-white before:before_navbar_item relative hover:text-white'
                                     : ''
                             } ${offset ? 'text-lg' : 'text-base'}`}
                         >
