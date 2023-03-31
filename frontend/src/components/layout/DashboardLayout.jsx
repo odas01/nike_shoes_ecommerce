@@ -58,7 +58,7 @@ function Dashboard() {
 
                 {/* Navbar */}
                 <nav>
-                    <MenuItem to="" title="Overview" icon={<RxDashboard size="20px" />} curPath={curPath} />
+                    {/* <MenuItem to="" title="Overview" icon={<RxDashboard size="20px" />} curPath={curPath} /> */}
                     <MenuItem to="products" title="Products" icon={<GiSonicShoes size="20px" />} curPath={curPath} />
                     <MenuItem to="category" title="Categorys" icon={<AiOutlineBars size="20px" />} curPath={curPath} />
                     <MenuItem to="customers" title="Customers" icon={<AiOutlineUser size="20px" />} curPath={curPath} />

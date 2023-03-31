@@ -69,7 +69,7 @@ function App() {
                         </ThemeRoute>
                     }
                 >
-                    <Route index element={<Main />} />
+                    <Route index element={<Navigate to="products" />} />
                     <Route path="products/create" element={<CreateProduct />} />
                     <Route path="products/:slug" element={<ProductDetail />} />
                     <Route path="products/:slug/edit" element={<EditProduct />} />
