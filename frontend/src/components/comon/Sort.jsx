@@ -5,11 +5,11 @@ import { BiShow, BiHide } from 'react-icons/bi';
 const label = [
     {
         text: 'Price: Low to High',
-        value: 'price:desc'
+        value: 'price:asc'
     },
     {
         text: 'Price: High to Low',
-        value: 'price:asc'
+        value: 'price:desc'
     }
 ];
 

@@ -35,13 +35,14 @@ const filterProduct = async (req, res, next) => {
   }
 
   let sortQuery = {};
+  console.log(sort);
   if (sort) {
     const [type, option] = req.query.sort.split(":");
-    sortQuery = { [type]: option === "desc" ? 1 : -1 };
+    sortQuery = { [type]: option };
   } else {
     sortQuery = { id: -1 };
   }
-
+  console.log(sortQuery);
   res.locals.sort = sortQuery;
   res.locals.filter = { ...filter };
   next();

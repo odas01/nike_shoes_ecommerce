@@ -67,7 +67,7 @@ export const getAll = async (req, res) => {
     const products = await Product.find(res.locals.filter)
       .skip(skip)
       .limit(limit)
-      .sort({ _id: -1 })
+      .sort(res.locals.sort)
       .populate("images");
 
     responseHandler.ok(res, { products, total, page, lastPage });
