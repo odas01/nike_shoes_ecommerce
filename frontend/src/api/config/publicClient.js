@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // const baseUrl = 'http://127.0.0.1:3000/api/';
-const baseUrl = 'https://mern-nikeshoes-api.vercel.app/api/';
+// const baseUrl = 'https://mern-nikeshoes-api.vercel.app/api/';
 
 const publicClient = axios.create({
-    baseURL: baseUrl
+    baseURL: process.env.REACT_APP_API
 });
 
 publicClient.interceptors.request.use(async config => {

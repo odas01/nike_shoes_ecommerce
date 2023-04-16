@@ -3,14 +3,14 @@ import axios from 'axios';
 import authApi from 'api/authApi';
 
 // const baseUrl = 'http://127.0.0.1:3000/api/';
-const baseUrl = 'https://mern-nikeshoes-api.vercel.app/api/';
+// const baseUrl = 'https://mern-nikeshoes-api.vercel.app/api/';
 const getAccessToken = () => localStorage.getItem('ACCESS_TOKEN');
 const getRefreshToken = () => localStorage.getItem('REFRESH_TOKEN');
 
 let refresh = false;
 
 const privateClient = axios.create({
-    baseURL: baseUrl
+    baseURL: process.env.REACT_APP_API
 });
 
 privateClient.interceptors.request.use(async config => {
