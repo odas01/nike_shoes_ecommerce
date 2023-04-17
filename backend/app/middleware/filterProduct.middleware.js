@@ -40,7 +40,7 @@ const filterProduct = async (req, res, next) => {
     const [type, option] = req.query.sort.split(":");
     sortQuery = { [type]: option };
   } else {
-    sortQuery = { id: -1 };
+    sortQuery = { createdAt: -1 };
   }
   console.log(sortQuery);
   res.locals.sort = sortQuery;

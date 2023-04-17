@@ -11,7 +11,7 @@ function TopHeader() {
     const dispatch = useDispatch();
     const { pathname } = useLocation();
 
-    const fullName = useSelector(state => state.auth.currentUser?.fullname);
+    const user = useSelector(state => state.auth.currentUser);
     const isLogin = useSelector(state => state.auth.isLogin);
 
     const handleLogout = () => {
@@ -49,23 +49,25 @@ function TopHeader() {
                     <Link to="/contact">Contact</Link>
                 </div>
                 {isLogin ? (
-                    <>
-                        <Dropdown
-                            menu={{ items }}
-                            placement="bottom"
-                            arrow
-                            overlayStyle={{
-                                minWidth: 160
-                            }}
-                        >
-                            <div className="flex-center hover:cursor-pointer pl-3">
-                                <span className="mr-2">Hi, {fullName}</span>
-                                <div className=" h-9 w-9 flex-center rounded-full hover:bg-gray-300">
+                    <Dropdown
+                        menu={{ items }}
+                        placement="bottom"
+                        arrow
+                        overlayStyle={{
+                            minWidth: 160
+                        }}
+                    >
+                        <div className="flex-center hover:cursor-pointer pl-3">
+                            <span className="mr-2">Hi, {user?.fullname}</span>
+                            <div className=" h-9 w-9 flex-center rounded-full hover:bg-gray-300">
+                                {!user.avatar ? (
                                     <FiUser size={20} />
-                                </div>
+                                ) : (
+                                    <img src={user.avatar.url} alt="avatar" className="w-6 h-6 rounded-full" />
+                                )}
                             </div>
-                        </Dropdown>
-                    </>
+                        </div>
+                    </Dropdown>
                 ) : (
                     <>
                         <div className="hover:text-gray-500 px-3 border-r border-gray-500">

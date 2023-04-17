@@ -11,7 +11,7 @@ function Card({ data, size = 16 }) {
                 />
             </div>
             <div className="flex-column py-4 max-h-[132px]">
-                <span className="font-semibold card-text" style={{ fontSize: size }}>
+                <span className="font-semibold text-dots" style={{ fontSize: size }}>
                     {data.title}
                 </span>
                 <span className="mb-3" style={{ fontSize: size - 4 }}>

@@ -14,7 +14,7 @@ function Footer() {
         });
     };
     return (
-        <div className="shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] mt-auto">
+        <div className="shadow-[0px_7px_14px_0px_#000] mt-auto">
             <div className="container pt-4 pb-2">
                 <div className="mt-4 mb-10">
                     <Row gutter={24}>

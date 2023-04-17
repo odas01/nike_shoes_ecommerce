@@ -10,11 +10,7 @@ function Header({ offset }) {
     const cartQuantity = useSelector(state => state.cart.qty);
 
     return (
-        <div
-            className={`bg-white transition-all duration-1000 h-[74px] ${
-                !offset ? 'fixed top-0 right-0 left-0 z-40' : 'relative'
-            }`}
-        >
+        <div className={`bg-white h-[90px] ${!offset ? 'fixed top-0 right-0 left-0 z-40' : 'relative'}`}>
             <div className="container h-full flex-between-center">
                 <Link to="/">
                     <Logo size={56} />
@@ -29,12 +25,14 @@ function Header({ offset }) {
                     <div className="relative group">
                         <Link to="/cart">
                             <BsBag size={20} className="transition-all ml-6 group-hover:scale-110" />
-                            <span
-                                className="w-6 h-6 bg-white flex-center absolute -top-3 -right-4 
-                                shadow-[0px_22px_70px_4px_rgba(0,0,0,0.56)] rounded-full text-[10px] font-bold"
-                            >
-                                {cartQuantity}
-                            </span>
+                            {cartQuantity > 0 && (
+                                <span
+                                    className="w-6 h-6 bg-white flex-center absolute -top-3 -right-4 
+                                shadow-[0px_1px_2px_0_#000] rounded-full text-[10px] font-bold"
+                                >
+                                    {cartQuantity}
+                                </span>
+                            )}
                         </Link>
                     </div>
                 </div>

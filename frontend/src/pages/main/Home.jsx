@@ -31,7 +31,9 @@ function Home() {
             <div className="banner relative">
                 <img src={images.bannerr} alt="" className="w-[580px] absolute right-28 bottom-0 object-contain" />
                 <div className="flex-column absolute top-1/3 left-28 text-white">
-                    <span className="font-nikeFutura tracking-[8px] text-8xl">JUST DO IT</span>
+                    <span className="font-nikeFutura tracking-[8px] text-8xl overflow-hidden whitespace-nowrap animate-typing">
+                        JUST DO IT
+                    </span>
                     <span className="font-nikeFutura text-3xl italic mt-2">Play With Electric Nike Shoes</span>
                     <Link
                         to="/c"

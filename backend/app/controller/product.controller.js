@@ -64,6 +64,7 @@ export const getAll = async (req, res) => {
     const page = skip / limit + 1 || 1;
     const lastPage = Math.ceil(total / limit) || 1;
 
+    console.log(res.locals.sort);
     const products = await Product.find(res.locals.filter)
       .skip(skip)
       .limit(limit)

@@ -45,12 +45,12 @@ function Main() {
     }, [location]);
 
     return (
-        <div className="flex-column text-[#151935]" id="body">
+        <div className="min-h-screen flex-column text-[#151935]" id="body">
             <TopHeader />
             <ScrollTop show={showScrolTop} />
             <Header offset={offset} />
 
-            <div className={`min-h-screen ${!offset ? 'mt-[74px]' : ''}`}>
+            <div className={`pb-10 ${!offset ? 'mt-[74px]' : ''}`}>
                 <Outlet />
             </div>
             <Footer />

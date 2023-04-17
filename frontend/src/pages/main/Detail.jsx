@@ -98,11 +98,10 @@ function Detail() {
                 stock
             };
 
-            dispatch(createCart(data)).then(() => {
-                dispatch(getCart(userId));
-                toast('success', 'Successfully added', 'top-right');
-                navigate('/' + path);
-            });
+            await dispatch(createCart(data));
+            await dispatch(getCart(userId));
+            toast('success', 'Successfully added', 'top-right');
+            navigate('/' + path);
         }
     };
 

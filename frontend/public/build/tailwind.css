@@ -1625,7 +1625,7 @@ input[type='number']::-webkit-outer-spin-button {
     background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 
-.card-text {
+.text-dots {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;

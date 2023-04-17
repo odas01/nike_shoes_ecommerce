@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
@@ -14,31 +15,31 @@ import AppLayout from 'components/layout/AppLayout';
 import DashboardLayout from 'components/layout/DashboardLayout';
 
 // auth layout
-import Login from 'views/auth/Login';
-import Register from 'views/auth/Register';
+import Login from 'pages/auth/Login';
+import Register from 'pages/auth/Register';
 
 // dashboard layout
-import Main from 'views/dashboard/Main';
-import ProductDetail from 'views/dashboard/ProductDetail';
-import CreateProduct from 'views/dashboard/CreateProduct';
-import EditProduct from 'views/dashboard/EditProduct';
-import Products from 'views/dashboard/Products';
-import CategoryDashboard from 'views/dashboard/Category';
-import Customers from 'views/dashboard/Customers';
-import OrderDashboard from 'views/dashboard/Order';
-import OrderDetai from 'views/dashboard/OrderDetail';
+import Main from 'pages/dashboard/Main';
+import ProductDetail from 'pages/dashboard/ProductDetail';
+import CreateProduct from 'pages/dashboard/CreateProduct';
+import EditProduct from 'pages/dashboard/EditProduct';
+import Products from 'pages/dashboard/Products';
+import CategoryDashboard from 'pages/dashboard/Category';
+import Customers from 'pages/dashboard/Customers';
+import OrderDashboard from 'pages/dashboard/Order';
+import OrderDetai from 'pages/dashboard/OrderDetail';
 
 // app layout
-import Home from 'views/Home';
-import Cart from 'views/Cart';
-import Category from 'views/Category';
-import Detail from 'views/Detail';
-import Contact from 'views/Contact';
-import Checkout from 'views/Checkout';
-import Order from 'views/Order';
-import User from 'views/User';
-import Profile from 'views/Profile';
-import ChangePassword from 'views/ChangePassword';
+import Home from 'pages/main/Home';
+import Cart from 'pages/main/Cart';
+import Category from 'pages/main/Category';
+import Detail from 'pages/main/Detail';
+import Contact from 'pages/main/Contact';
+import Checkout from 'pages/main/Checkout';
+import Order from 'pages/main/user/Order';
+import User from 'pages/main/User';
+import Profile from 'pages/main/user/Profile';
+import ChangePassword from 'pages/main/user/ChangePassword';
 
 // not found
 import NotFound from 'components/comon/Notfound';
@@ -50,11 +51,7 @@ import PrivateRoute from 'components/route/PrivateRoute';
 import ThemeRoute from 'components/route/ThemeRoute';
 
 function App() {
-    const theme = localStorage.getItem('theme');
-    if (!theme) {
-        localStorage.setItem('theme', process.env.REACT_APP_THEME);
-    }
-    window.document.documentElement.classList.add(theme);
+    const cartQty = useSelector(state => state.cart.qty);
 
     return (
         <BrowserRouter>
@@ -108,9 +105,13 @@ function App() {
                     <Route
                         path="checkout"
                         element={
-                            <PrivateRoute>
-                                <Checkout />
-                            </PrivateRoute>
+                            cartQty > 0 ? (
+                                <PrivateRoute>
+                                    <Checkout />
+                                </PrivateRoute>
+                            ) : (
+                                <Navigate to="/cart" />
+                            )
                         }
                     />
                     <Route path="user" element={<User />}>

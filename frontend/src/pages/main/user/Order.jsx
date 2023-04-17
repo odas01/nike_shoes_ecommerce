@@ -1,39 +1,38 @@
-import orderApi from 'api/orderApi';
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { Row, Col } from 'antd';
+import { useEffect, useState } from 'react';
+import { Row, Col, Collapse } from 'antd';
 import { FcShipped } from 'react-icons/fc';
 import { MdPendingActions, MdOutlineLocalShipping } from 'react-icons/md';
 import { IoRocketOutline } from 'react-icons/io5';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { MdOutlineDeliveryDining } from 'react-icons/md';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { AiOutlinePlus, AiOutlineMinus, AiOutlineLoading3Quarters } from 'react-icons/ai';
+
 import { date } from 'handler/convertDate.handler.js';
-import { Collapse } from 'antd';
+import orderApi from 'api/orderApi';
 
 function Order() {
     const [status, setStatus] = useState(null);
     const [orders, setOrders] = useState([]);
+
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         getOrders();
     }, [status]);
 
     const getOrders = async () => {
+        setLoading(true);
         try {
             const res = await orderApi.getAll(status ? { status } : {});
             setOrders(res.orders);
         } catch (err) {
             console.log(err);
         }
-    };
-
-    const onChange = key => {
-        console.log(key);
+        setLoading(false);
     };
 
     return (
         <>
-            <div className="">
+            <>
                 <span
                     className={`px-3 py-2 inline-block w-32 cursor-pointer text-center rounded-tl rounded-tr ${
                         !status ? 'bg-gray-300 text-white' : ''
@@ -66,17 +65,26 @@ function Order() {
                 >
                     Delivered
                 </span>
-            </div>
-            <div className={`border-2 border-gray-300 rounded p-4 pb-0 ${status ? 'rounded-tl' : 'rounded-tl-none'}`}>
-                {orders &&
+            </>
+            <div className={`border-2 border-gray-300 rounded p-4 ${status ? 'rounded-tl' : 'rounded-tl-none'}`}>
+                {loading ? (
+                    <div className="flex-center">
+                        <AiOutlineLoading3Quarters size={24} className="animate-spin" />
+                    </div>
+                ) : orders.length > 0 ? (
                     orders.map((order, index) => (
-                        <div key={index} className="mb-4 px-10 rounded bg-[#f6f6f6] border border-gray-300">
+                        <div
+                            key={index}
+                            className="px-10 rounded bg-[#f6f6f6] border border-gray-300"
+                            style={{
+                                marginBottom: index !== orders.length - 1 ? '16px' : 0
+                            }}
+                        >
                             <Collapse
                                 accordion
                                 ghost
                                 expandIcon={({ isActive }) => (!isActive ? <AiOutlinePlus /> : <AiOutlineMinus />)}
                                 expandIconPosition="start"
-                                onChange={onChange}
                             >
                                 <Collapse.Panel
                                     header={
@@ -166,7 +174,10 @@ function Order() {
                                 </Collapse.Panel>
                             </Collapse>
                         </div>
-                    ))}
+                    ))
+                ) : (
+                    <span>Empty order</span>
+                )}
             </div>
         </>
     );

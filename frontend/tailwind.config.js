@@ -35,7 +35,7 @@ module.exports = {
             },
             animation: {
                 'waving-hand': 'wave 1s linear infinite',
-                typing: 'typing 6s steps(40) infinite',
+                typing: 'typing 4s steps(40) infinite',
                 effectt: 'effect .3s linear'
             },
             fontFamily: {

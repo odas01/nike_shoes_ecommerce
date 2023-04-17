@@ -53,7 +53,7 @@ function Profile() {
     };
 
     return (
-        <div className="border-2 border-gray-400 rounded p-4">
+        <div className="border border-gray-400 rounded p-4">
             <h2 className="font-semibold text-xl">My profile</h2>
             <p className="text-sm pb-4 border-b border-gray-400">Manage profile information for account security</p>
             <Row>

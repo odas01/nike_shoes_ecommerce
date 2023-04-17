@@ -63,7 +63,7 @@ function Search() {
     };
 
     return (
-        <div className="relative flex-center pr-3 pl-10 bg-white border-2 border-gray-200 rounded-lg max-w-[300px]">
+        <div className="relative flex-center pr-3 pl-10 bg-white border border-gray-300 rounded-full max-w-[300px]">
             <div className="h-10 w-10 flex-center absolute left-0 cursor-pointer" onClick={redirectToSearch}>
                 <BiSearch size={20} color="#ced4d9" />
             </div>
@@ -72,18 +72,18 @@ function Search() {
                 className="pl-1 pr-5 py-3 cursor-text transition-all w-64 z-10 peer"
                 ref={inputRef}
                 value={searchValue}
-                placeholder=" "
+                placeholder="Enter your product..."
                 onChange={handleChange}
                 onKeyDown={e => searchValue && e.key === 'Enter' && redirectToSearch()}
                 onFocus={() => setShowResult(true)}
                 onBlur={() => setShowResult(false)}
             />
 
-            <div className="inline-block absolute left-[44px] peer-focus:hidden peer-[&:not(:placeholder-shown)]:hidden">
+            {/* <div className="inline-block absolute left-[44px] peer-focus:hidden peer-[&:not(:placeholder-shown)]:hidden">
                 <p className="text-sm text-gray-400 font-normal overflow-hidden whitespace-nowrap pointer-events-none animate-typing">
                     Enter your product...
                 </p>
-            </div>
+            </div> */}
             <div
                 className="absolute right-2 peer-placeholder-shown:hidden cursor-pointer px-2 z-40"
                 onClick={() => setSearchValue('')}

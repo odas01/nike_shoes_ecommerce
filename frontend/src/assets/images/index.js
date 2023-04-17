@@ -22,7 +22,8 @@ const images = {
         men: require('./banner/men.jpg')
     },
     bannerr: require('./banner.png'),
-    no_avatar: require('./user/no_avatar.png')
+    no_avatar: require('./user/no_avatar.png'),
+    empty_cart: require('./cart/emptyCart.png')
 };
 
 export default images;

@@ -22,10 +22,12 @@ function User() {
                                 alt=""
                             />
                             <div className="flex-column ml-4">
-                                <span className="text-base font-semibold">{user.fullname}</span>
+                                <span className="text-base font-semibold text-card max-w-[150px] text-dots">
+                                    {user.fullname}
+                                </span>
                                 <Link
                                     to="/user/account/profile"
-                                    className="flex-center gap-2 text-gray-400 hover:text-gray-500"
+                                    className="flex items-center gap-2 text-gray-400 hover:text-gray-500"
                                     onClick={() => setShowAccount(true)}
                                 >
                                     <MdEdit /> Edit profile
@@ -35,7 +37,7 @@ function User() {
                         <div className="mt-4">
                             <Link
                                 to="/user/account/profile"
-                                className="pb-2 gap-x-2 flex items-center  hover:text-orange-700"
+                                className="pb-2 gap-x-2 flex items-center hover:text-orange-700"
                                 onClick={() => setShowAccount(true)}
                             >
                                 <FiUser />
