@@ -1,5 +1,5 @@
 import addressApi from 'api/addressApi';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 function Address({ address, setAddress }) {
     const [show, setShow] = useState(false);

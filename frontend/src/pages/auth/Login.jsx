@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+
+import { useGoogleLogin } from '@react-oauth/google';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import Button from 'components/comon/Button';
 import LoadingOverlay from 'components/comon/loading/LoadingOverlay';
 import { toast } from 'handler/toast.handler';
-import { loginUser } from 'redux/authSlice';
-import authApi from 'api/authApi';
+import { loginUser, googleLogin } from 'redux/slice/authSlice';
+import images from 'assets/images';
 
 function Login() {
     const [loading, setLoading] = useState(false);
@@ -29,6 +31,21 @@ function Login() {
             setLoading(true);
 
             dispatch(loginUser({ values, navigate }))
+                .unwrap()
+                .then(() => {
+                    setLoading(false);
+                    toast('success', 'Login successfully');
+                })
+                .catch(err => {
+                    setLoading(false);
+                    toast('error', err.msg);
+                });
+        }
+    });
+
+    const login = useGoogleLogin({
+        onSuccess: async response => {
+            dispatch(googleLogin({ token: response.access_token, navigate }))
                 .unwrap()
                 .then(() => {
                     setLoading(false);
@@ -79,15 +96,21 @@ function Login() {
                         <span className="msg-error">{formik.errors.password}</span>
                     )}
                 </div>
-                <Button type="submit">Log in</Button>
+                <Button type="submit" className="w-full">
+                    Log in
+                </Button>
             </form>
             <hr className="my-10 hr" />
-            {/* <Button type="submit" color="#000" bgColor="#fff">
-                Login With Facebook
+            <Button
+                className="mt-4 w-full"
+                type="submit"
+                title="Login With Google"
+                color="#000"
+                bgColor="#fff"
+                onClick={() => login()}
+            >
+                <img src={images.social.google} alt="google" className="w-4 h-4 mr-4" /> Login With Google
             </Button>
-            <Button className="mt-4" type="submit" title="Login With Google" color="#000" bgColor="#fff">
-                Login With Google
-            </Button> */}
             <p className="mb-0 mt-4">
                 <Link to="/forgot-password" className=" text-green-700 hover:text-green-700 hover:underline">
                     Forgot your password?

@@ -1,7 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import { Checkbox, Row, Col } from 'antd';
 import { Collapse } from 'antd';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';

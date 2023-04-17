@@ -6,10 +6,14 @@ const router = express.Router();
 
 router.post("/register", auth.register);
 router.post("/login", auth.login);
+
+router.post("/googleLogin", auth.googleLogin);
+
 router.post("/refresh", auth.refreshToken);
-router.get("/verify-token", verifyUser, (req, res) => {
+router.get("/activeUser", verifyUser, (req, res) => {
   res.send({ user: req.user });
 });
+
 router.post("/logout", auth.logout);
 
 export default router;

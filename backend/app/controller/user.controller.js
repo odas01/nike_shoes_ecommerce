@@ -34,7 +34,9 @@ export const updateOne = async (req, res) => {
   try {
     const currentUser = await User.findById(req.params.id);
     if (values.avatar) {
-      await destroySingle(currentUser.avatar.public_id);
+      if (currentUser.avatar.public_id) {
+        await destroySingle(currentUser.avatar?.public_id);
+      }
       const avatarRes = await uploadSingle(values.avatar);
       values.avatar = {
         public_id: avatarRes.public_id,

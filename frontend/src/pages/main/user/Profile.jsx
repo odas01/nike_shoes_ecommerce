@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'antd';
 import { useRef, useState } from 'react';
-import { UploadImage } from 'components/comon/UploadImage';
 import images from 'assets/images';
 import userApi from 'api/userApi';
-import { getUser } from 'redux/authSlice.js';
+import { getUser } from 'redux/slice/authSlice.js';
 import LoadingOverlay from 'components/comon/loading/LoadingOverlay';
 
 function Profile() {
@@ -32,14 +31,17 @@ function Profile() {
 
     const handleChoseImage = async e => {
         const value = e.target.files[0];
-        const abc = await convertBase64(value);
-        setAvatar(abc);
+        const convert = await convertBase64(value);
+        setAvatar(convert);
     };
 
     const handleSubmit = async e => {
         e.preventDefault();
         setLoading(true);
         const data = Object.fromEntries(new FormData(document.getElementById('form_user')));
+        if (!data.phone) {
+            delete data.phone;
+        }
         if (avatar.slice(0, 4) !== 'http') {
             data.avatar = avatar;
         }

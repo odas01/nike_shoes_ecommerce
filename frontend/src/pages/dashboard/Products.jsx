@@ -102,18 +102,18 @@ function Products() {
         setProductActive({});
     };
 
-    const handleChangePublic = async product => {
-        product.published = !product.published;
-        try {
-            await productApi.update(product.slug, {
-                published: product.published
-            });
-            toast('success', 'Updated product');
-            getProducts();
-        } catch (err) {
-            toast('error', err.msg);
-        }
-    };
+    // const handleChangePublic = async product => {
+    //     product.published = !product.published;
+    //     try {
+    //         await productApi.update(product.slug, {
+    //             published: product.published
+    //         });
+    //         toast('success', 'Updated product');
+    //         getProducts();
+    //     } catch (err) {
+    //         toast('error', err.msg);
+    //     }
+    // };
 
     const handleFilter = (e, type) => {
         setSkip(DEFAULT_SKIP);
@@ -329,20 +329,20 @@ function Products() {
                             dark:border-[#24262d] rounded-br-lg rounded-bl-lg bg-db-wrap dark:bg-gray-bg"
                     >
                         <div>
-                            SHOWING {''}
+                            SHOWING{' '}
                             <span>
                                 {DEFAULT_LIMIT * skip + 1}- {DEFAULT_LIMIT * skip + products.length}
-                            </span>
-                            {''} OF
+                            </span>{' '}
+                            OF
                             <span> {total}</span>
                         </div>
                         <ul className="flex-between-center text-[#9e9e9e]  mt-0">
                             <li className="py-1 px-3">
                                 <button
-                                    className={`bg-transparent px-0   dark:text-[#9e9e9e]  ${
+                                    className={`bg-transparent px-0 dark:text-[#9e9e9e] ${
                                         page === 1
                                             ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                                            : 'text-gray-700'
+                                            : 'text-gray-700 cursor-pointer'
                                     }`}
                                     disabled={page === 1}
                                     onClick={() => setSkip(skip => skip - 1)}
@@ -354,7 +354,7 @@ function Products() {
                                 {Array.from({ length: lastPage }, (_, i) => i + 1).map(item => (
                                     <button
                                         key={item}
-                                        className={`px-3 py-1 rounded-lg ${
+                                        className={`px-3 py-1 rounded-lg cursor-pointer ${
                                             item === page
                                                 ? 'text-white bg-[#0e9f6e]'
                                                 : 'text-gray-700 dark:text-[#9e9e9e]'
@@ -367,10 +367,10 @@ function Products() {
                             </li>
                             <li className="py-1 px-3">
                                 <button
-                                    className={`bg-transparent px-0   dark:text-[#9e9e9e] ${
+                                    className={`bg-transparent px-0 dark:text-[#9e9e9e] ${
                                         page === lastPage
                                             ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                                            : 'text-gray-700'
+                                            : 'text-gray-700 cursor-pointer'
                                     }`}
                                     disabled={page === lastPage}
                                     onClick={() => setSkip(skip => skip + 1)}

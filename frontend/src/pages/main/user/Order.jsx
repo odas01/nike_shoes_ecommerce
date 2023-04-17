@@ -15,20 +15,20 @@ function Order() {
     const [orders, setOrders] = useState([]);
 
     const [loading, setLoading] = useState(false);
+
     useEffect(() => {
+        const getOrders = async () => {
+            setLoading(true);
+            try {
+                const res = await orderApi.getAll(status ? { status } : {});
+                setOrders(res.orders);
+            } catch (err) {
+                console.log(err);
+            }
+            setLoading(false);
+        };
         getOrders();
     }, [status]);
-
-    const getOrders = async () => {
-        setLoading(true);
-        try {
-            const res = await orderApi.getAll(status ? { status } : {});
-            setOrders(res.orders);
-        } catch (err) {
-            console.log(err);
-        }
-        setLoading(false);
-    };
 
     return (
         <>

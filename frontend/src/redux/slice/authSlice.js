@@ -42,6 +42,34 @@ export const loginUser = createAsyncThunk(
         }
     }
 );
+export const googleLogin = createAsyncThunk(
+    'auth/googleLogin',
+    async ({ token, navigate }, { rejectWithValue, dispatch, getState }) => {
+        try {
+            const res = await authApi.googleLogin(token);
+            console.log(res);
+
+            dispatch(saveToken(res));
+
+            const { redirectOfLogin } = getState().auth;
+
+            if (res.user.admin) navigate('/dashboard');
+            else {
+                if (redirectOfLogin) {
+                    dispatch(setRedirectOfLogin(null));
+
+                    navigate(redirectOfLogin);
+                    return res;
+                }
+
+                navigate('/');
+            }
+            return res;
+        } catch (err) {
+            return rejectWithValue(err);
+        }
+    }
+);
 
 export const authUser = createAsyncThunk('auth/user', async ({ navigate, type }, { rejectWithValue, dispatch }) => {
     try {
@@ -104,6 +132,11 @@ export const authSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(loginUser.fulfilled, (state, { payload }) => {
+                state.currentUser = payload.user;
+                state.isLogin = true;
+                state.isAuth = false;
+            })
+            .addCase(googleLogin.fulfilled, (state, { payload }) => {
                 state.currentUser = payload.user;
                 state.isLogin = true;
                 state.isAuth = false;

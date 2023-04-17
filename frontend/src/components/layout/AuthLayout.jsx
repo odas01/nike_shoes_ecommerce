@@ -6,7 +6,7 @@ import { useNavigate, Outlet } from 'react-router-dom';
 import Loading from 'components/comon/loading/Loading';
 import login from 'assets/images/auth/login.jpeg';
 import register from 'assets/images/auth/register.jpeg';
-import { authUser } from 'redux/authSlice';
+import { authUser } from 'redux/slice/authSlice';
 
 function Auth({ authRoute }) {
     const [loading, setLoading] = useState(true);

@@ -114,6 +114,7 @@ function Customers() {
                                 <td className="px-4 py-4w-[50px]"></td>
                                 <td className="px-4 py-3">NAME</td>
                                 <td className="px-4 py-3">JOINING DATE</td>
+                                <td className="px-4 py-3">TYPE</td>
                                 <td className="px-4 py-3">EMAIL</td>
                                 <td className="px-4 py-4text-center ">BLOCKED</td>
                                 <td className="px-4 py-4text-center  w-32">ACTIONS</td>
@@ -128,6 +129,9 @@ function Customers() {
                                         </td>
                                         <td className="px-4 py-4">{customer.fullname}</td>
                                         <td className="px-4 py-3">{customer.createdAt}</td>
+                                        <td className="px-4 py-3">
+                                            <span className="capitalize">{customer.authType}</span>
+                                        </td>
                                         <td className="px-4 py-3">{customer.email}</td>
                                         <td className="px-4 py-4 text-center w-28">
                                             <div onClick={() => handleUpdateBlocked(customer)} className="flex-center">

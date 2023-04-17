@@ -10,7 +10,7 @@ import { Collapse } from 'antd';
 
 import Address from 'components/comon/Address';
 import orderApi from 'api/orderApi';
-import { deleteCart } from 'redux/cartSlice';
+import { deleteCart } from 'redux/slice/cartSlice';
 
 import { toast } from 'handler/toast.handler.js';
 

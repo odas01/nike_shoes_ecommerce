@@ -6,8 +6,8 @@ import TopHeader from 'components/comon/TopHeader';
 import Header from 'components/comon/header/Header';
 import Footer from 'components/comon/Footer';
 import ScrollTop from 'components/comon/scrollTop/ScrollTop';
-import { getCategories } from 'redux/categorySlice';
-import { getCart } from 'redux/cartSlice';
+import { getCategories } from 'redux/slice/categorySlice';
+import { getCart } from 'redux/slice/cartSlice';
 
 function Main() {
     const location = useLocation();

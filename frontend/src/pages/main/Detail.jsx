@@ -8,8 +8,8 @@ import { Autoplay, FreeMode, Thumbs, Scrollbar } from 'swiper';
 import 'swiper/css/scrollbar';
 
 import productApi from 'api/productApi';
-import { getCart, createCart } from 'redux/cartSlice';
-import { setRedirectOfLogin } from 'redux/authSlice';
+import { getCart, createItem } from 'redux/slice/cartSlice';
+import { setRedirectOfLogin } from 'redux/slice/authSlice';
 import Card from 'components/comon/Card';
 import { toast } from 'handler/toast.handler';
 import images from 'assets/images';
@@ -98,7 +98,7 @@ function Detail() {
                 stock
             };
 
-            await dispatch(createCart(data));
+            await dispatch(createItem(data));
             await dispatch(getCart(userId));
             toast('success', 'Successfully added', 'top-right');
             navigate('/' + path);

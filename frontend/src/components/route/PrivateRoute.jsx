@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { setRedirectOfLogin } from 'redux/authSlice';
+import { setRedirectOfLogin } from 'redux/slice/authSlice';
 
 function PrivateRoute({ children }) {
     const { isLogin } = useSelector(state => state.auth);

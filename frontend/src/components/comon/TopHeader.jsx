@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiUser } from 'react-icons/fi';
 import { Dropdown } from 'antd';
 
-import { logOut, setRedirectOfLogin } from 'redux/authSlice';
-import { removeCart } from 'redux/cartSlice';
+import { logOut, setRedirectOfLogin } from 'redux/slice/authSlice';
+import { removeCart } from 'redux/slice/cartSlice';
 
 function TopHeader() {
     const navigate = useNavigate();
@@ -13,6 +13,7 @@ function TopHeader() {
 
     const user = useSelector(state => state.auth.currentUser);
     const isLogin = useSelector(state => state.auth.isLogin);
+    console.log(user);
 
     const handleLogout = () => {
         dispatch(logOut());
@@ -45,9 +46,9 @@ function TopHeader() {
     return (
         <div className="bg-gray-200">
             <div className="container flex justify-end items-center h-9 text-xs">
-                <div className="hover:text-gray-500 px-3 border-r border-gray-500">
+                {/* <div className="hover:text-gray-500 px-3 border-r border-gray-500">
                     <Link to="/contact">Contact</Link>
-                </div>
+                </div> */}
                 {isLogin ? (
                     <Dropdown
                         menu={{ items }}
@@ -60,10 +61,12 @@ function TopHeader() {
                         <div className="flex-center hover:cursor-pointer pl-3">
                             <span className="mr-2">Hi, {user?.fullname}</span>
                             <div className=" h-9 w-9 flex-center rounded-full hover:bg-gray-300">
-                                {!user.avatar ? (
-                                    <FiUser size={20} />
-                                ) : (
+                                {user.avatar ? (
                                     <img src={user.avatar.url} alt="avatar" className="w-6 h-6 rounded-full" />
+                                ) : user.authAvatar ? (
+                                    <img src={user.authAvatar} alt="avatar" className="w-6 h-6 rounded-full" />
+                                ) : (
+                                    <FiUser size={20} />
                                 )}
                             </div>
                         </div>

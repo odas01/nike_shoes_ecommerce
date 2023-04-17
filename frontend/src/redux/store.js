@@ -3,10 +3,10 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import authSlice from './authSlice';
-import categorySlice from './categorySlice';
-import cartSlice from './cartSlice';
-import productSlice from './productSlice';
+import authSlice from './slice/authSlice';
+import categorySlice from './slice/categorySlice';
+import cartSlice from './slice/cartSlice';
+import productSlice from './slice/productSlice';
 
 const rootPersistConfig = {
     key: 'root',

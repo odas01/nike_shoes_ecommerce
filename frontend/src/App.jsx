@@ -19,7 +19,7 @@ import Login from 'pages/auth/Login';
 import Register from 'pages/auth/Register';
 
 // dashboard layout
-import Main from 'pages/dashboard/Main';
+// import Main from 'pages/dashboard/Main';
 import ProductDetail from 'pages/dashboard/ProductDetail';
 import CreateProduct from 'pages/dashboard/CreateProduct';
 import EditProduct from 'pages/dashboard/EditProduct';

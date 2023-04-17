@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import axios from "axios";
 
 import User from "../models/user.model.js";
 import responseHandler from "../handler/response.handler.js";
@@ -51,6 +52,10 @@ export const login = async (req, res) => {
     if (!user)
       return responseHandler.badrequest(res, "Incorret email or password");
 
+    if (user.authType !== "local") {
+      return responseHandler.badrequest(res, "Incorret email or password");
+    }
+
     // check password
     const passwordValid = bcrypt.compareSync(password, user.password);
     if (!passwordValid)
@@ -62,12 +67,45 @@ export const login = async (req, res) => {
       responseHandler.ok(res, {
         ...token,
         user,
-        id: user.id,
       });
     }, 1000);
   } catch {
     responseHandler.error(res);
   }
+};
+
+// google login
+export const googleLogin = async (req, res) => {
+  const bearerHeader = req.headers["authorization"];
+  const accessToken = bearerHeader.split(" ")[1];
+
+  axios
+    .get("https://www.googleapis.com/oauth2/v3/userinfo", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+    .then(async ({ data }) => {
+      const user = await User.findOne({ email: data.email });
+      if (user) {
+        const token = generateTokens({ id: user.id });
+        responseHandler.ok(res, { ...token, user });
+      } else {
+        // resgis success
+        const newUser = await User.create({
+          fullname: data.name,
+          email: data.email,
+          authId: data.sub,
+          authType: "google",
+          authAvatar: data.picture,
+        });
+        const token = generateTokens({ id: newUser.id });
+        responseHandler.ok(res, { ...token, user: newUser });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json({ message: "Invalid access token!" });
+    });
 };
 
 // refresh token

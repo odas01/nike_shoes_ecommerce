@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { updateItem, deleteItem } from 'redux/cartSlice';
+import { updateItem, deleteItem } from 'redux/slice/cartSlice';
 import { Row, Col } from 'antd';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 

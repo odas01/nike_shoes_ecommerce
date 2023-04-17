@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from 'components/comon/loading/Loading';
 import orderApi from 'api/orderApi';
-import { Select } from 'antd';
 import { FaSearchPlus } from 'react-icons/fa';
 import { date } from 'handler/convertDate.handler.js';
 import { toast } from 'handler/toast.handler.js';
@@ -182,7 +181,7 @@ function Order() {
                                             {order.status === 'processing' && (
                                                 <select
                                                     name="price"
-                                                    className="input flex-1 mr-6 appearance"
+                                                    className="input flex-1 mr-6 appearance cursor-pointer"
                                                     onChange={e => handleChange(e.target.value, order._id)}
                                                     value={order.status}
                                                 >

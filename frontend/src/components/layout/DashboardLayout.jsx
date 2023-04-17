@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsFillSunFill, BsFillMoonFill, BsCartCheck } from 'react-icons/bs';
-import { RxDashboard } from 'react-icons/rx';
 import { GiSonicShoes } from 'react-icons/gi';
 import { AiOutlineBars, AiOutlineUser } from 'react-icons/ai';
 import { CiLogout } from 'react-icons/ci';
@@ -12,7 +11,7 @@ import MenuItem from 'components/comon/MenuItem';
 import Button from 'components/comon/Button';
 import useDarkMode from 'hooks/useDarkMode';
 import avt from 'assets/images/avt.png';
-import { logOut, authUser } from 'redux/authSlice';
+import { logOut, authUser } from 'redux/slice/authSlice';
 import Logo from 'components/comon/Logo';
 
 function Dashboard() {

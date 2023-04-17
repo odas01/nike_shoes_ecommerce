@@ -15,7 +15,6 @@ function Search() {
     const [showResult, setShowResult] = useState(false);
 
     const [loading, setLoading] = useState(false);
-    const [widthInput, setWidthInput] = useState(false);
 
     const navigate = useNavigate();
     const inputRef = useRef(null);

@@ -5,7 +5,18 @@ export default mongoose.model(
   mongoose.Schema(
     {
       fullname: { type: String },
-      email: { type: String, unique: true, lowercase: true },
+      email: { type: String, required: true, unique: true, lowercase: true },
+      authType: {
+        type: String,
+        enum: ["local", "facebook", "google"],
+        default: "local",
+      },
+      authId: {
+        type: String,
+      },
+      authAvatar: {
+        type: String,
+      },
       avatar: {
         public_id: {
           type: String,

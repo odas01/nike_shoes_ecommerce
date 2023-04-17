@@ -2,18 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import cartApi from 'api/cartApi';
 
-export const getCart = createAsyncThunk('cart/get', async (values, { rejectWithValue }) => {
+export const getCart = createAsyncThunk('cart/get', async (userId, { rejectWithValue }) => {
     try {
-        const res = await cartApi.get(values);
-        return res;
-    } catch (err) {
-        return rejectWithValue(err);
-    }
-});
-
-export const createCart = createAsyncThunk('cart/create', async (values, { rejectWithValue }) => {
-    try {
-        const res = await cartApi.create(values);
+        const res = await cartApi.get(userId);
         return res;
     } catch (err) {
         return rejectWithValue(err);
@@ -30,9 +21,18 @@ export const deleteCart = createAsyncThunk('cart/delete', async (values, { rejec
     }
 });
 
-export const updateItem = createAsyncThunk('item/update', async (values, { rejectWithValue, dispatch }) => {
+export const createItem = createAsyncThunk('item/create', async (values, { rejectWithValue }) => {
     try {
-        const res = await cartApi.updateItem(values.itemId, { qty: values.qty });
+        const res = await cartApi.create(values);
+        return res;
+    } catch (err) {
+        return rejectWithValue(err);
+    }
+});
+
+export const updateItem = createAsyncThunk('item/update', async ({ itemId, qty }, { rejectWithValue, dispatch }) => {
+    try {
+        const res = await cartApi.updateItem(itemId, { qty });
         dispatch(updateCart(res.item));
         return res;
     } catch (err) {

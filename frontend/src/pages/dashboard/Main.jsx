@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { RiStackLine } from 'react-icons/ri';
 import { BsCartCheck } from 'react-icons/bs';
-import { AiOutlineCreditCard, AiOutlineShoppingCart, AiOutlineCheck } from 'react-icons/ai';
-import { MdOutlinePending, MdOutlineLocalShipping } from 'react-icons/md';
+import { AiOutlineCreditCard, AiOutlineShoppingCart } from 'react-icons/ai';
+import { MdOutlinePending } from 'react-icons/md';
 import { Col, Row } from 'antd';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
@@ -22,30 +22,29 @@ function Main() {
     const [loading, setLoading] = useState(true);
 
     // price
-    const [totalAmount, setTotalAmout] = useState(0);
     const [totalAmoutToday, setTotalAmoutToday] = useState(0);
 
     useEffect(() => {
         setLoading(true);
-        const getOrderToday = orders => {
-            const curDate = {
-                date: new Date().getDate(),
-                month: new Date().getMonth(),
-                year: new Date().getFullYear()
-            };
-            return orders
-                .map(order => {
-                    const date = new Date(order.createdAt);
-                    if (
-                        date.getDate() === curDate.date &&
-                        date.getMonth() === curDate.month &&
-                        date.getFullYear() === curDate.year
-                    ) {
-                        return order;
-                    }
-                })
-                .filter(item => item);
-        };
+        // const getOrderToday = orders => {
+        //     const curDate = {
+        //         date: new Date().getDate(),
+        //         month: new Date().getMonth(),
+        //         year: new Date().getFullYear()
+        //     };
+        //     return orders
+        //         .map(order => {
+        //             const date = new Date(order.createdAt);
+        //             if (
+        //                 date.getDate() === curDate.date &&
+        //                 date.getMonth() === curDate.month &&
+        //                 date.getFullYear() === curDate.year
+        //             ) {
+        //                 return order;
+        //             }
+        //         })
+        //         .filter(item => item);
+        // };
 
         const totalPrice = orders =>
             orders.reduce((cur, item) => {

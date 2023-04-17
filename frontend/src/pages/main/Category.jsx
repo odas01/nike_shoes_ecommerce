@@ -6,7 +6,7 @@ import Sort from 'components/comon/Sort';
 import Filter from 'components/comon/Filter';
 import Catalog from 'components/comon/Catalog';
 
-import { getProducts } from 'redux/productSlice';
+import { getProducts } from 'redux/slice/productSlice';
 import images from 'assets/images';
 
 const DEFAULT_LIMIT = 15;
