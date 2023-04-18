@@ -52,6 +52,7 @@ import ThemeRoute from 'components/route/ThemeRoute';
 
 function App() {
     const cartQty = useSelector(state => state.cart.qty);
+    console.log(process.env.REACT_APP_CLIENT_ID);
 
     return (
         <BrowserRouter>
