@@ -47,7 +47,6 @@ export const googleLogin = createAsyncThunk(
     async ({ token, navigate }, { rejectWithValue, dispatch, getState }) => {
         try {
             const res = await authApi.googleLogin(token);
-            console.log(res);
 
             dispatch(saveToken(res));
 

@@ -61,14 +61,14 @@ function Login() {
     return (
         <div className="login">
             {loading && <LoadingOverlay title="Waiting for login...." />}
-            <h1 className="login__title mb-6">Login</h1>
+            <h1 className="mb-6 login__title">Login</h1>
             <form onSubmit={formik.handleSubmit}>
                 <div className="mb-6 flex-column">
                     <label className="font-medium" htmlFor="email">
                         Email
                     </label>
                     <input
-                        className="input hover:cursor-text mt-2 "
+                        className="mt-2 input hover:cursor-text "
                         name="email"
                         placeholder="abc@gmail.com"
                         value={formik.values.email}
@@ -84,7 +84,7 @@ function Login() {
                         Password
                     </label>
                     <input
-                        className="input hover:cursor-text mt-2 "
+                        className="mt-2 input hover:cursor-text "
                         type="password"
                         name="password"
                         placeholder="****************"
@@ -102,7 +102,7 @@ function Login() {
             </form>
             <hr className="my-10 hr" />
             <Button
-                className="mt-4 w-full"
+                className="w-full mt-4"
                 type="submit"
                 title="Login With Google"
                 color="#000"
@@ -111,13 +111,13 @@ function Login() {
             >
                 <img src={images.social.google} alt="google" className="w-4 h-4 mr-4" /> Login With Google
             </Button>
-            <p className="mb-0 mt-4">
-                <Link to="/forgot-password" className=" text-green-700 hover:text-green-700 hover:underline">
+            <p className="mt-4 mb-0">
+                <Link to="/forgot-password" className="text-green-700  hover:text-green-700 hover:underline">
                     Forgot your password?
                 </Link>
             </p>
-            <p className="mb-0 mt-1">
-                <Link to="/register" className=" text-green-700 hover:text-green-700 hover:underline">
+            <p className="mt-1 mb-0">
+                <Link to="/register" className="text-green-700  hover:text-green-700 hover:underline">
                     Create account
                 </Link>
             </p>
